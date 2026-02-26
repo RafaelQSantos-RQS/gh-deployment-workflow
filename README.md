@@ -20,7 +20,7 @@ You are required to write a GitHub action that deploys any changes made to the i
 
 5. Every push to the main branch that changes the index.html file should trigger the workflow to run and deploy the website to GitHub Pages
 
-6. Website and any changes you make should be accessible at the GitHub pages URL for the repository e.g. `https://<username>.github.io/gh-deployment-workflow/`
+6. Website and any changes you make should be accessible at the GitHub pages URL for the repository e.g. `https://rafaelqsantos-rqs.github.io/gh-deployment-workflow/`
 
 ## Stretch Goal
 

@@ -1,43 +1,36 @@
-# Astro Starter Kit: Minimal
+# gh-deployment-workflow
 
-```sh
-npm create astro@latest -- --template minimal
-```
+The goal of this project is to help you learn the notion of continuous integration and continuous deployment. You will write a simple GitHub Actions workflow to deploy a static website to GitHub Pages.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Requirements
 
-## 🚀 Project Structure
+You are required to write a GitHub action that deploys any changes made to the index.html file to GitHub Pages. It should only deploy the file when the index.html file is changed.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Steps to Get Started
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Create a GitHub repository for the project called `gh-deployment-workflow`
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. Repository should contain a simple `index.html` file saying "Hello, GitHub Actions!"
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+3. It should also have a `README.md` file explaining the project
 
-Any static assets, like images, can be placed in the `public/` directory.
+4. There should also be a `deploy.yml` file in the `.github/workflows` directory which contains the GitHub Actions workflow to deploy the website to GitHub Pages
 
-## 🧞 Commands
+5. Every push to the main branch that changes the index.html file should trigger the workflow to run and deploy the website to GitHub Pages
 
-All commands are run from the root of the project, from a terminal:
+6. Website and any changes you make should be accessible at the GitHub pages URL for the repository e.g. `https://<username>.github.io/gh-deployment-workflow/`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Stretch Goal
 
-## 👀 Want to learn more?
+You can also make this project more practical e.g. use some sort of a static site generator such as Hugo, Jekyll, Astro or similar generator to create a more complex website e.g. your own personal portfolio.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## What You'll Learn
+
+After finishing this project, you will have a good understanding of the following concepts:
+
+- GitHub Actions
+- GitHub Pages
+- Continuous Integration and Continuous Deployment
+- Writing GitHub Actions workflows
+
+Continue solving more projects for advanced CI/CD concepts.

@@ -3,7 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ['index.html']
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - 'AGENTS.md'
 
 permissions:
   contents: read
@@ -22,12 +25,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate HTML
-        run: |
-          if [ ! -f index.html ]; then
-            echo "Error: index.html not found"
-            exit 1
-          fi
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -35,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment

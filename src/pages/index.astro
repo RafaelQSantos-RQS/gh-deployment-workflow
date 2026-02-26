@@ -1,0 +1,237 @@
+---
+const challenge = {
+  title: "CI/CD with GitHub Actions",
+  subtitle: "Learn continuous integration and deployment",
+  goal: "Create a GitHub Actions workflow that deploys a static website to GitHub Pages",
+  requirements: [
+    "Create a GitHub repository called gh-deployment-workflow",
+    "Add an index.html file saying 'Hello, GitHub Actions!'",
+    "Create a deploy.yml workflow in .github/workflows/",
+    "Configure the workflow to run when index.html changes",
+    "Deploy to GitHub Pages on push to main branch"
+  ],
+  concepts: [
+    { name: "GitHub Actions", icon: "⚡" },
+    { name: "GitHub Pages", icon: "🌐" },
+    { name: "CI/CD", icon: "🔄" },
+    { name: "Workflows", icon: "📋" }
+  ],
+  stretchGoal: "Use a static site generator like Hugo, Jekyll, or Astro"
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Learn CI/CD with GitHub Actions" />
+    <title>{challenge.title}</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="logo">🚀</div>
+        <h1>{challenge.title}</h1>
+        <p class="subtitle">{challenge.subtitle}</p>
+      </header>
+
+      <section class="goal">
+        <h2>Goal</h2>
+        <p>{challenge.goal}</p>
+      </section>
+
+      <section class="requirements">
+        <h2>Requirements</h2>
+        <ul>
+          {challenge.requirements.map((req, i) => (
+            <li>
+              <span class="number">{i + 1}</span>
+              {req}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="concepts">
+        <h2>What You'll Learn</h2>
+        <div class="concepts-grid">
+          {challenge.concepts.map((concept) => (
+            <div class="concept-card">
+              <span class="icon">{concept.icon}</span>
+              <span class="name">{concept.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="stretch-goal">
+        <h2>🌟 Stretch Goal</h2>
+        <p>{challenge.stretchGoal}</p>
+      </section>
+
+      <footer>
+        <p>Built with <a href="https://astro.build">Astro</a> + GitHub Actions</p>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text: #e0e0e0;
+    --text-muted: #888;
+    --accent: #ff6b35;
+    --accent-hover: #ff8c5a;
+    --border: #333;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .logo {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent), #ff9f1c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+  }
+
+  section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+
+  .goal p {
+    font-size: 1.125rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .concept-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .concept-card .icon {
+    font-size: 1.5rem;
+  }
+
+  .concept-card .name {
+    font-weight: 500;
+  }
+
+  .stretch-goal {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 159, 28, 0.05));
+  }
+
+  .stretch-goal p {
+    color: var(--text-muted);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .concepts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
